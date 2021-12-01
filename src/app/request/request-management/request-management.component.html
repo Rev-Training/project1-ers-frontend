@@ -1,0 +1,28 @@
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>User</th>
+                <th>Amount</th>
+                <th>Date Created</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let request of allRequests">
+                <td>{{request.requestID}}</td>
+                <td>{{request.userRef}}</td>
+                <td>{{request.amount | currency}}</td>
+                <td>{{request.dateCreated | date}}</td>
+                <td>{{request.status}}</td>
+                <td>
+                    <button type="button" class="btn btn-danger small" (click)="goToRequestEdit(request.requestID)">
+                        <span class="material-icons">edit</span>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

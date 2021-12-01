@@ -1,0 +1,30 @@
+<div>
+    <a class="nav-link" routerLink="user-add">
+        Add User --
+    </a>
+</div>
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Manager?</th>
+                <th>Details</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of userRoster">
+                <td>{{user.userID}}</td>
+                <td>{{user.userName}}</td>
+                <td>{{user.userIsManager}}</td>
+                <td>
+                    <button type="button" class="btn btn-danger small" (click)="goToUserEdit(user.userID)">
+                        <span class="material-icons">edit</span>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

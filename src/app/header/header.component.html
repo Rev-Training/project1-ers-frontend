@@ -1,0 +1,15 @@
+<div class="header" id="headerDIV">
+    <a routerLink="home" class="logo">Expense Reimbursement System</a>
+    <div class="header-right" *ngIf="!managerLevel()">
+        <a *ngIf="isLoggedIn()" class="nav-link" routerLink="user-details">My Account</a>
+        <a *ngIf="isLoggedIn()" class="nav-link" routerLink="request-details">My Requests</a>
+        <a *ngIf="isLoggedIn()" class="nav-link" routerLink="logout">Logout</a>
+        <a *ngIf="!isLoggedIn()" class="nav-link" routerLink="login">Login</a>
+    </div>
+    <div class="header-right" *ngIf="managerLevel()">
+        <a *ngIf="isLoggedIn()" class="nav-link" routerLink="user-management">User Accounts</a>
+        <a *ngIf="isLoggedIn()" class="nav-link" routerLink="request-management">Requests</a>
+        <a *ngIf="isLoggedIn()" class="nav-link" routerLink="logout">Logout</a>
+        <a *ngIf="!isLoggedIn()" class="nav-link" routerLink="login">Login</a>
+    </div>
+</div>

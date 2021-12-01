@@ -1,0 +1,8 @@
+<div *ngIf="displayUser" class="card">
+    <img src="img.jpg" alt="John" style="width:100%">
+    <h1>{{currentUser.userName | titlecase}}</h1>
+    <h2>ID: {{currentUser.userID}}</h2>
+    <p><button (click)="viewUserRequests()">View Requests</button></p>
+    <p><button (click)="resetUserPassword()">Reset Password</button></p>
+    <p><button (click)="removeUser()">Remove User</button></p>
+</div>
