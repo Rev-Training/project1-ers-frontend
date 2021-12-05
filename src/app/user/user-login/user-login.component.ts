@@ -28,6 +28,8 @@ export class UserLoginComponent implements OnInit
     userIsRemoved: false
   }
 
+  buttonDisplay: boolean = true;
+
   constructor(
     private router: Router,
     private userService: UserService,
@@ -36,66 +38,72 @@ export class UserLoginComponent implements OnInit
 
   ngOnInit(): void
   {
-
+    this.buttonDisplay = !this.userLoggedIn();
   }
-  validateLogin() //hack <.<
+
+  userLoggedIn(): boolean
   {
-   if (this.newUser.userName == "admin" && this.newUser.userPassword == "admin")
-   {
-     this.newUser.userID = 1;
-     this.newUser.userIsManager = true;
-   }
-   else
-   {
-     this.newUser.userID = 2;
-     this.newUser.userIsManager = false;
-   }
-   this.validatedUser = this.newUser;
-   this.authService.cacheUser(this.validatedUser);
-   this.authService.isLoggedIn = true;
-   this.router.navigate(['home']);
+    return this.authService.isLoggedIn;
   }
-  // validateLogin()
+
+  // validateLogin() //hack <.<
   // {
-  //   this.userService.getUserIDService(this.newUser.userName).subscribe(
-  //     (response) =>
-  //     {
-  //       this.newUser.userID = response;
-  //       console.log(response);
-
-  //       this.userService.getUserService(this.newUser).subscribe(
-  //         (response) =>
-  //         {
-  //           console.log("response----------");
-  //           console.log(response);
-
-  //           this.validatedUser = response;
-  //           console.log("validatedUser-------------");
-  //           console.log(this.validatedUser);
-  //           if (this.validatedUser.userPassword == this.newUser.userPassword)
-  //           {
-  //             this.authService.cacheUser(this.validatedUser);
-  //             this.authService.isLoggedIn = true;
-
-  //             this.router.navigate(['home']);
-  //           }
-  //           else
-  //           {
-  //             alert('invalid credentials');
-  //             this.router.navigate(['login']);
-  //           }
-
-  //         },
-  //         (error) =>
-  //         {
-  //           console.log(error);
-  //         }
-  //       );
-  //     },
-  //     (error) =>
-  //     {
-  //       console.log(error);
-  //       console.log("user not found");
-  //     });
+  //  if (this.newUser.userName == "admin" && this.newUser.userPassword == "admin")
+  //  {
+  //    this.newUser.userID = 1;
+  //    this.newUser.userIsManager = true;
+  //  }
+  //  else
+  //  {
+  //    this.newUser.userID = 2;
+  //    this.newUser.userIsManager = false;
+  //  }
+  //  this.validatedUser = this.newUser;
+  //  this.authService.cacheUser(this.validatedUser);
+  //  this.authService.isLoggedIn = true;
+  //  this.router.navigate(['home']);
   // }
+  validateLogin()
+  {
+    this.userService.getUserIDService(this.newUser.userName).subscribe(
+      (response) =>
+      {
+        this.newUser.userID = response;
+        console.log(response);
+
+        this.userService.getUserService(this.newUser).subscribe(
+          (response) =>
+          {
+            console.log("response----------");
+            console.log(response);
+
+            this.validatedUser = response;
+            console.log("validatedUser-------------");
+            console.log(this.validatedUser);
+            if (this.validatedUser.userID > 0 && this.validatedUser.userPassword == this.newUser.userPassword)
+            {
+              this.authService.cacheUser(this.validatedUser);
+              this.authService.isLoggedIn = true;
+
+              this.router.navigate(['home']);
+            }
+            else
+            {
+              alert('invalid credentials');
+              this.router.navigate(['login']);
+            }
+
+          },
+          (error) =>
+          {
+            console.log(error);
+          }
+        );
+      },
+      (error) =>
+      {
+        console.log(error);
+        console.log("user not found");
+      });
+  }
 }

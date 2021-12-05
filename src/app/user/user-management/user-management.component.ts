@@ -13,6 +13,12 @@ export class UserManagementComponent implements OnInit
 
   userRoster: User[] = [];
 
+  profilePics: string[] = [
+    "../../../assets/mike-stoklasa}-232863-normal.jpg",
+    "../../../assets/jay-bauman}-232864-normal.jpg",
+    "../../../assets/rich_evans_suit.jpg"
+  ];
+
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void
@@ -28,8 +34,18 @@ export class UserManagementComponent implements OnInit
       }
     );
   }
-  goToUserEdit(userID: any)
+  goToUserDetails(userID: any)
   {
     this.router.navigate(['user-details', userID]);
+  }
+
+  goToAddUser()
+  {
+    this.router.navigate(['user-add']);
+  }
+
+  getImagePath(userID: number): string
+  {
+    return this.profilePics[userID - 1];
   }
 }

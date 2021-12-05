@@ -23,6 +23,11 @@ export class UserService
     return this.http.get<User>(this.baseURL + "/" + user.userID);
   }
 
+  getUserByIDService(userID: number): Observable<User>
+  {
+    return this.http.get<User>(this.baseURL + "/" + userID);
+  }
+
   getUserIDService(username: string): Observable<number>
   {
     return this.http.get<number>(this.baseURL + "/id/" + username);

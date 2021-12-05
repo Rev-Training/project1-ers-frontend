@@ -1,26 +1,43 @@
-<div class="container mb-5">
-    <h2>Login Form</h2>
-    <div class="card mt-5">
-        <div class="card-header bg-warning">LOGIN</div>
-        <div class="card-body">
-            <form>
-                <div class="form-group">
-                    <label for="userName">Email:</label>
-                    <input type="text" class="form-control" id="userName" placeholder="Enter user name" name="userName"
-                        [(ngModel)]="newUser.userName">
-                </div>
-                <div class="form-group">
-                    <label for="pwd">Password:</label>
-                    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd"
-                        [(ngModel)]="newUser.userPassword">
-                </div>
-            </form>
+<!-- Button to open the modal login form -->
+<button *ngIf="buttonDisplay" class="button" (click)="buttonDisplay=false"
+    onclick="document.getElementById('id01').style.display='block'">Login</button>
+
+<!-- The Modal -->
+<div id="id01" class="modal">
+    <span (click)="buttonDisplay=true" onclick="document.getElementById('id01').style.display='none'" class="close"
+        title="Close Modal">&times;</span>
+
+    <!-- Modal Content -->
+    <form class="modal-content animate" action="/action_page.php">
+        <!-- <div class="imgcontainer">
+            <img src="img_avatar2.png" alt="Avatar" class="avatar">
+        </div> -->
+        <div class="container">
+            <p>
+                <label class="loginLabel" for="uname"><b>Username: </b></label>
+                <input type="text" placeholder="Enter Email Address" name="uname" required [(ngModel)]="newUser.userName">
+            </p>
+            <p>
+                <label class="loginLabel" for="psw"><b>Password: </b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required
+                    [(ngModel)]="newUser.userPassword">
+            </p>
+
+
+            <!-- <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label> -->
+
         </div>
-        <div class="card-footer bg-warning">
-            <button type="button" class="btn btn-danger mr-5" (click)="validateLogin()">
-                Login
-            </button>
-            <button type="reset" class="btn btn-danger">Clear</button>
+        <button class="button2" type="button" (click)="validateLogin()">Login</button>
+        <p>
+            <button class="cancelbtn" type="button" (click)="buttonDisplay=true"
+                onclick="document.getElementById('id01').style.display='none'">Cancel</button>
+        </p>
+
+        <div class="container" style="background-color:#f1f1f100">
+
+            <span class="psw">Forgot <a href="#">password?</a></span>
         </div>
-    </div>
+    </form>
 </div>

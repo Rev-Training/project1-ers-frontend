@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/user/auth.service';
-import { Request } from '../request.model';
+import { Request, RequestStatus } from '../request.model';
 import { RequestService } from '../request.service';
 
 @Component({
@@ -13,6 +13,7 @@ export class RequestManagementComponent implements OnInit
 {
 
   allRequests: Request[] = [];
+  pendingStatus: RequestStatus = RequestStatus.Pending;
 
   constructor(private requestService: RequestService,
     private authService: AuthService,
@@ -36,4 +37,5 @@ export class RequestManagementComponent implements OnInit
   {
     this.router.navigate(['request-details', requestID]);
   }
+
 }
