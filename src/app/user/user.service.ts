@@ -54,4 +54,8 @@ export class UserService
     return this.http.delete<User>(this.baseURL + "/r/" + user.userID);
   }
 
+  userPasswordVerification(user: User): Observable<boolean>
+  {
+    return this.http.get<boolean>(this.baseURL + "/verify/" + user.userID)
+  }
 }

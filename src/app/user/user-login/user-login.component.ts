@@ -93,7 +93,7 @@ export class UserLoginComponent implements OnInit
             }
             else
             {
-              alert('invalid credentials');
+              alert('invalid credentials');                
               this.router.navigate(['login']);
             }
 
@@ -113,5 +113,10 @@ export class UserLoginComponent implements OnInit
   forgotPassword()
   {
     alert("That feature will be implemented in a future patch.");
+  }
+
+  validateOld()
+  {
+    
   }
 }
