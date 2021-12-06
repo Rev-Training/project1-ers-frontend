@@ -1,11 +1,12 @@
 <div *ngIf="displayUser" class="card">
-    <img src="img.jpg" alt="John" style="width:100%">
+    <img src="{{getImagePath(currentUser.userID)}}" alt="John" style="width:100%">
     <h1>{{currentUser.userName}}</h1>
     <h2>ID: {{currentUser.userID}}</h2>
-    <p><button class="button" (click)="viewUserRequests()">View Requests</button></p>
-    <p><button class="button" (click)="resetUserPassword()">Reset Password</button></p>
-    <p><button class="button" (click)="removeUser()">Remove User</button></p>
+    <p *ngIf="currentUser.userID>1"><button class="button" (click)="viewUserRequests()">View Requests</button></p>
+    <p *ngIf="currentUser.userID>1"><button class="button" (click)="resetUserPassword()">Reset Password</button></p>
+    <p *ngIf="currentUser.userID>1&&managerAccess()"><button class="button" (click)="removeUser()">Remove User</button></p>
 </div>
+<br>
 <div *ngIf="displayRequests">
     <table class="center" id="userRequestDisplay">
         <thead>

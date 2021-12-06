@@ -52,6 +52,11 @@ export class UserInputComponent implements OnInit
     }
   }
 
+  processFile(imageInput: any)
+  {
+    
+  }
+
   cancelForm()
   {
     this.router.navigate(['user-management']);

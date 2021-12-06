@@ -78,7 +78,15 @@ export class UserDetailsComponent implements OnInit
       this.userService.updateUserService(this.currentUser).subscribe(
         (response) =>
         {
-          alert("Password has been rest for user #" + response.userID);
+          if (this.managerAccess())
+          {
+            alert("Password has been reset for user #" + response.userID);
+          }
+          else
+          {
+            alert("Your password has been reset. Please login again with your temporary password to update it.");
+            this.router.navigate(['logout']);
+          }
         },
         (error) =>
         {
@@ -112,5 +120,15 @@ export class UserDetailsComponent implements OnInit
     {
       alert("User #" + this.currentUser + " has already been marked for removal.");
     }
+  }
+
+  getUserID(): number
+  {
+    return this.authService.getCurrentUser().userID;
+  }
+  
+  getImagePath(userID: number): string
+  {
+    return "../" + this.userService.profilePics[userID - 1];
   }
 }

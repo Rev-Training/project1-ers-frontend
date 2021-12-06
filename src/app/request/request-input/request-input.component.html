@@ -1,43 +1,27 @@
-<div class="container">
-    <form action="action_page.php">
-        <div class="row">
-            <div class="col-25">
-                <label for="fname">First Name</label>
-            </div>
-            <div class="col-75">
-                <input type="text" id="fname" name="firstname" placeholder="Your name..">
-            </div>
+<!-- The Modal -->
+<div id="id02" class="modal">
+    <!-- <span onclick="document.getElementById('id01').style.display='none'" class="close"
+        title="Close Modal">&times;</span> -->
+
+    <!-- Modal Content -->
+    <form class="modal-content animate" action="/action_page.php">
+        <!-- <div class="imgcontainer">
+            <img src="img_avatar2.png" alt="Avatar" class="avatar">
+        </div> -->
+        <div class="container">
+            <p>
+                <label class="loginLabel" for="amount"><b>Reimbursement Amount: $</b></label>
+                <input type="number" placeholder="Enter amount in USD" name="amount" required
+                    [(ngModel)]="newRequest.amount">
+            </p>
+
         </div>
-        <div class="row">
-            <div class="col-25">
-                <label for="lname">Last Name</label>
-            </div>
-            <div class="col-75">
-                <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-25">
-                <label for="country">Country</label>
-            </div>
-            <div class="col-75">
-                <select id="country" name="country">
-                    <option value="australia">Australia</option>
-                    <option value="canada">Canada</option>
-                    <option value="usa">USA</option>
-                </select>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-25">
-                <label for="subject">Subject</label>
-            </div>
-            <div class="col-75">
-                <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-            </div>
-        </div>
-        <div class="row">
-            <input type="submit" value="Submit">
+        <button class="button2" type="button" (click)="submitNewRequest()">Submit Request</button>
+        <p>
+            <button class="cancelbtn" type="button" (click)="cancelForm()">Cancel</button>
+        </p>
+
+        <div class="container" style="background-color:#f1f1f100">
         </div>
     </form>
 </div>

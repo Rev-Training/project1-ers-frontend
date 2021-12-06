@@ -18,6 +18,15 @@ export class HeaderComponent implements OnInit
    
   }
 
+  currentUserID(): number
+  {
+    return this.authService.getCurrentUser().userID;
+  }
+  currentUserName(): string
+  {
+    return this.authService.getCurrentUser().userName;
+  }
+
   isLoggedIn()
   {
     return this.authService.isLoggedIn;
@@ -27,4 +36,10 @@ export class HeaderComponent implements OnInit
   {
     return this.authService.userIsManager();
   }
+
+  goToUserDetails(userID: any)
+  {
+    this.router.navigate(['user-details', userID]);
+  }
+    
 }

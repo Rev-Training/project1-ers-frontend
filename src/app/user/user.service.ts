@@ -11,6 +11,12 @@ export class UserService
 
   baseURL = "http://localhost:8888/api/users";
 
+  profilePics: string[] = [
+    "../../assets/mike-stoklasa}-232863-normal.jpg",
+    "../../assets/jay-bauman}-232864-normal.jpg",
+    "../../assets/rich_evans_suit.jpg"
+  ];
+
   constructor(private http: HttpClient) { }
 
   getAllUsersService(): Observable<User[]>

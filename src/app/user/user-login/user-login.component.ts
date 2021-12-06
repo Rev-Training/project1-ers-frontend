@@ -110,4 +110,8 @@ export class UserLoginComponent implements OnInit
         console.log("user not found");
       });
   }
+  forgotPassword()
+  {
+    alert("That feature will be implemented in a future patch.");
+  }
 }

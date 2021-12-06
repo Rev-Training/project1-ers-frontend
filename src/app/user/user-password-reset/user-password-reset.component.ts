@@ -25,6 +25,7 @@ export class UserPasswordResetComponent implements OnInit {
 
   ngOnInit(): void
   {
+    alert("Your password has been reset. Please enter a new password.");
     this.userCache = this.authService.getCurrentUser();
   }
   
@@ -37,7 +38,7 @@ export class UserPasswordResetComponent implements OnInit {
         this.userService.updateUserService(this.userCache).subscribe(
           (response) =>
           {
-            alert("Password updated. Please login again.");
+            alert("Password updated. Please login with new password.");
             this.router.navigate(['logout']);
           },
           (error) =>
