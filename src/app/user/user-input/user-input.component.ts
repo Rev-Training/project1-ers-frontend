@@ -32,6 +32,7 @@ export class UserInputComponent implements OnInit
   {
     if (this.newUser.userName.includes("@", 3) && this.newUser.userName.includes(".", 7))
     {
+      this.newUser.userPassword = "t_password";
       this.userService.addUserService(this.newUser).subscribe(
         (response) =>
         {

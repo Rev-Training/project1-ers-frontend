@@ -9,5 +9,5 @@
     <p *ngIf="confirmRequestEditButtons"><button (click)="cancelRequestEdit()">GO BACK</button></p>
     <p *ngIf="!confirmRequestEditButtons"><button (click)="confirmRequestEdit(true)">Approve</button></p>
     <p *ngIf="!confirmRequestEditButtons"><button (click)="confirmRequestEdit(false)">Deny</button></p>
-    <p *ngIf="!confirmRequestEditButtons"><button (click)="goToAllRequests()">Go Back</button></p>
+    <p *ngIf="!confirmRequestEditButtons"><button (click)="goToAllRequests()">All Requests</button></p>
 </div>

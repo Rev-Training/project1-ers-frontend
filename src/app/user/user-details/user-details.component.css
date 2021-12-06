@@ -1,0 +1,72 @@
+.card {
+  box-shadow: 0 6px 9px 0 rgba(0, 0, 0, 0.2);
+  width: fit-content;
+  height: 420px;
+  text-align: center;
+  background-color: rgba(213, 237, 251, 0.836);
+  margin-top: 1%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(183, 183, 183, 0.420);
+  color: hsl(183, 100%, 51%);
+}
+
+th{
+    color: chartreuse;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    min-width: fit-content;
+    border-bottom: aliceblue;
+    border-bottom-width: 1.5px;
+    border-bottom-style: solid;
+    border-right: aliceblue;
+    border-right-width: 1.5px;
+    border-right-style: solid;
+    font-size: 30px;
+    text-align: center;
+    padding-inline: 6px;
+}
+
+td{
+    border-bottom: rgba(240, 248, 255, 0.63);
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+
+.center{
+    background-color: rgba(0, 0, 0, 0.763);
+    color: gold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 24px;
+    min-width: fit-content;
+    min-height: fit-content;
+    height: 125px;
+    text-align: center;
+    margin-top: 16px;
+    overflow-x: auto;
+    margin-left: auto;
+    margin-right: auto;
+    outline: rgba(0, 0, 0, 0.963);
+    outline-style: solid;
+    outline-width: 3px;
+
+}
+
+.button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: rgb(250, 255, 251);
+  background-color: rgba(0, 0, 0, 0.963);
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 24px;
+  border-radius: 3px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-bottom: -6px;
+}

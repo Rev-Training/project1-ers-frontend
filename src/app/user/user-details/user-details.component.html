@@ -1,8 +1,34 @@
 <div *ngIf="displayUser" class="card">
     <img src="img.jpg" alt="John" style="width:100%">
-    <h1>{{currentUser.userName | titlecase}}</h1>
+    <h1>{{currentUser.userName}}</h1>
     <h2>ID: {{currentUser.userID}}</h2>
-    <p><button (click)="viewUserRequests()">View Requests</button></p>
-    <p><button (click)="resetUserPassword()">Reset Password</button></p>
-    <p><button (click)="removeUser()">Remove User</button></p>
+    <p><button class="button" (click)="viewUserRequests()">View Requests</button></p>
+    <p><button class="button" (click)="resetUserPassword()">Reset Password</button></p>
+    <p><button class="button" (click)="removeUser()">Remove User</button></p>
+</div>
+<div *ngIf="displayRequests">
+    <table class="center" id="userRequestDisplay">
+        <thead>
+            <tr>
+                <th>Request ID</th>
+                <th>Amount</th>
+                <th>Date Created</th>
+                <th>Status</th>
+                <th *ngIf="managerAccess()" style="border: 0px;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let request of userRequests">
+                <td>{{request.requestID}}</td>
+                <td>{{request.amount | currency}}</td>
+                <td>{{request.dateCreated | date}}</td>
+                <td>{{request.status}}</td>
+                <td *ngIf="managerAccess() && request.status==pendingStatus">
+                    <button type="button" class="button" (click)="goToRequestEdit(request.requestID)">
+                        <span class="material-icons">Manage</span>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

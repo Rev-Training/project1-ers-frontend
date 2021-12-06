@@ -74,18 +74,22 @@ export class UserLoginComponent implements OnInit
         this.userService.getUserService(this.newUser).subscribe(
           (response) =>
           {
-            console.log("response----------");
             console.log(response);
-
             this.validatedUser = response;
-            console.log("validatedUser-------------");
             console.log(this.validatedUser);
+
             if (this.validatedUser.userID > 0 && this.validatedUser.userPassword == this.newUser.userPassword)
             {
               this.authService.cacheUser(this.validatedUser);
               this.authService.isLoggedIn = true;
-
-              this.router.navigate(['home']);
+              if (this.validatedUser.userPassword == "t_password")
+              {
+                this.router.navigate(['pw-reset']);
+              }
+              else
+              {
+                this.router.navigate(['home']);
+              } 
             }
             else
             {

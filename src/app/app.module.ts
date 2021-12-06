@@ -14,6 +14,7 @@ import { RequestInputComponent } from './request/request-input/request-input.com
 import { RequestManagementComponent } from './request/request-management/request-management.component';
 import { RequestDetailsComponent } from './request/request-details/request-details.component';
 import { FormsModule } from '@angular/forms';
+import { UserPasswordResetComponent } from './user/user-password-reset/user-password-reset.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     UserDetailsComponent,
     RequestInputComponent,
     RequestManagementComponent,
-    RequestDetailsComponent
+    RequestDetailsComponent,
+    UserPasswordResetComponent
   ],
   imports: [
     BrowserModule,

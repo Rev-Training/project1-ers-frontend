@@ -35,7 +35,7 @@ export class UserService
 
   addUserService(user: User): Observable<User>
   {
-    return this.http.get<User>(this.baseURL + "/" + user.userID);
+    return this.http.post<User>(this.baseURL, user);
   }
 
   updateUserService(user: User): Observable<User>
@@ -45,7 +45,7 @@ export class UserService
 
   removeUserService(user: User): Observable<User>
   {
-    return this.http.delete<User>(this.baseURL + "/" + user.userID);
+    return this.http.delete<User>(this.baseURL + "/r/" + user.userID);
   }
 
 }
